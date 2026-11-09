@@ -1,0 +1,26 @@
+# Environment secrets & credentials
+.env
+.env.local
+.env.*.local
+
+# Python caches & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Database & generated binaries
+*.sqlite3
+invoices_generated/TEST-*.pdf
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
