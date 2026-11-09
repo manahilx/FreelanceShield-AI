@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreelanceShield AI — AI Freelancer Protection & PayPal Automation</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/static/img/logo.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Liquid Glass Fintech Custom Stylesheet -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Background Animated Liquid Canvas -->
+  <div class="liquid-bg-canvas">
+    <div class="liquid-orb liquid-orb-1"></div>
+    <div class="liquid-orb liquid-orb-2"></div>
+    <div class="liquid-orb liquid-orb-3"></div>
+    <div class="liquid-orb liquid-orb-4"></div>
+  </div>
+  <div class="liquid-grid-overlay"></div>
+
+  <!-- =========================================================================
+       TOP NAVIGATION BAR (Liquid Glass)
+       ========================================================================= -->
+  <header class="top-navbar">
+    <!-- Brand Logo -->
+    <a class="brand-wrapper" data-view-target="landing">
+      <div class="brand-icon-shield">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="brand-text-title">FreelanceShield <span>AI</span></div>
+    </a>
+
+    <!-- Navigation Pills -->
+    <nav class="nav-links-cluster">
+      <button class="nav-pill-btn active" data-view-target="landing">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Home</span>
+      </button>
+      <button class="nav-pill-btn" data-view-target="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        <span>Dashboard</span>
+      </button>
+      <button class="nav-pill-btn" data-view-target="security">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Security Center</span>
+      </button>
+      <button class="nav-pill-btn" data-view-target="paypal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <span>PayPal Hub</span>
+      </button>
+      <button class="nav-pill-btn" data-view-target="invoices">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <span>AI Invoices</span>
+      </button>
+      <button class="nav-pill-btn" data-view-target="analytics">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span>Analytics</span>
+      </button>
+    </nav>
+
+    <!-- Telemetry Badges & Profile -->
+    <div class="nav-actions-cluster">
+      <div class="paypal-badge-indicator" title="PayPal Orders v2 Integration Status">
+        <span class="paypal-dot"></span>
+        <span>PayPal Sandbox</span>
+      </div>
+
+      <!-- Notifications Bell Button -->
+      <button class="icon-circle-btn" data-view-target="notifications" title="View Security Notifications">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="notif-badge-count" id="nav-notif-count">0</span>
+      </button>
+
+      <!-- User Profile Chip -->
+      <div class="user-profile-chip" data-view-target="dashboard">
+        <div class="user-avatar-initials">AR</div>
+        <div class="user-name-text">Alex Rivers</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================= -->
+  <main class="main-content-layout">
+
+    <!-- ---------------------------------------------------------------------
+         A. LANDING PAGE VIEW
+         --------------------------------------------------------------------- -->
+    <section class="view-section active" id="view-landing">
+      <div class="landing-hero">
+        <div class="hero-pill-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          PayPal Hackathon 2026 Edition — AI & Payment Protection
+        </div>
+
+        <h1 class="hero-heading">
+          Your Freelance Business. <span class="gradient-text">Protected.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Detect scams, secure your payments, and manage your freelance business with intelligent AI protection. Powered by OpenAI heuristics and real PayPal Sandbox Orders v2 escrow automation.
+        </p>
+
+        <div class="hero-cta-cluster">
+          <button class="btn-liquid-primary" data-view-target="dashboard">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            Get Started
+          </button>
+          <a href="#features-anchor" class="btn-liquid-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            Explore Features
+          </a>
+        </div>
+
+        <!-- 3D Liquid Glass Telemetry Showcase Panel -->
+        <div class="hero-glass-visual">
+          <div class="hero-stats-ribbon">
+            <div class="hero-stat-box">
+              <div class="hero-stat-value" id="hero-stat-paid">$34,820.00</div>
+              <div class="hero-stat-label">Verified PayPal Payments</div>
+            </div>
+            <div class="hero-stat-box">
+              <div class="hero-stat-value" id="hero-stat-threats">14 Neutralized</div>
+              <div class="hero-stat-label">Security Threats Quarantined</div>
+            </div>
+            <div class="hero-stat-box">
+              <div class="hero-stat-value" id="hero-stat-pending">$4,200.00</div>
+              <div class="hero-stat-label">Sandbox Escrow Clearance</div>
+            </div>
+            <div class="hero-stat-box">
+              <div class="hero-stat-value" id="hero-stat-score">98/100</div>
+              <div class="hero-stat-label">AI Security Posture Grade</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+              <span class="status-badge badge-completed">TLS 1.3 Hardened</span>
+              <span class="status-badge badge-safe">PayPal Orders v2 Verified</span>
+              <span class="status-badge badge-pending">OpenAI Heuristic Core</span>
+            </div>
+            <button class="btn-banner-action" data-view-target="security">
+              Launch AI Security Center ?
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Showcase Section -->
+      <div id="features-anchor" class="landing-section-title">
+        <h2>Three Core Defense Systems in One Platform</h2>
+        <p>Combining AI cybersecurity, PayPal escrow automation, and freelance financial intelligence.</p>
+      </div>
+
+      <div class="features-grid-3col">
+        <!-- Feature 1 -->
+        <div class="feature-glass-box">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>AI Scam Message Detector</h3>
+          <p>Instantly evaluates client proposals, Upwork/Fiverr chats, and cashier's check overpayment schemes. Assigns 0–100 risk scores and highlights exact fraud vectors.</p>
+          <span class="feature-tag-chip">Cybersecurity Agent</span>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-glass-box">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Suspicious URL & Phishing Scanner</h3>
+          <p>Inspects links for homoglyph attacks, deceptive brand spoofing (e.g. fake PayPal logins), raw IP hosts, and malicious top-level domains without visiting harmful servers.</p>
+          <span class="feature-tag-chip">DNS & Protocol Heuristics</span>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-glass-box">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3>Freelance Job Offer Analyzer</h3>
+          <p>Uncovers advance-fee equipment traps, unrealistic $100/hr data entry bait, off-platform Telegram lures, and premature government ID harvesting.</p>
+          <span class="feature-tag-chip">Proposal Assessment</span>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-glass-box">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <h3>PayPal Sandbox Orders v2 Hub</h3>
+          <p>Creates genuine PayPal Sandbox payment orders with intent CAPTURE, handles server-side capture verification, and tracks fees with idempotent safety.</p>
+          <span class="feature-tag-chip">PayPal REST API</span>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-glass-box">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>AI Natural-Language Invoice Studio</h3>
+          <p>Simply type "Create an invoice for $500 for ABC Solutions" and the AI extracts line items, due dates, and totals. Includes print-ready ReportLab PDF downloads.</p>
+          <span class="feature-tag-chip">ReportLab & NLP</span>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-glass-box">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>ShieldBot AI Financial Copilot</h3>
+          <p>Floating conversational assistant answers questions directly using live SQLite ledger records. No hallucinations — strictly grounded in verified database history.</p>
+          <span class="feature-tag-chip">Context Grounding</span>
+        </div>
+      </div>
+
+      <!-- How It Works Section -->
+      <div class="landing-section-title">
+        <h2>How FreelanceShield AI Works</h2>
+        <p>A seamless end-to-end protective shield for your digital freelance career.</p>
+      </div>
+
+      <div class="how-it-works-row">
+        <div class="step-card">
+          <div class="step-number-badge">01</div>
+          <h4>Inspect Inbound Inquiries</h4>
+          <p>Run incoming client proposals or URLs through the AI Security Center to flag fraudulent overpayment schemes before committing.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number-badge">02</div>
+          <h4>Issue Protected Invoices</h4>
+          <p>Generate professional invoices using natural language instructions. Each invoice embeds a tamper-evident FreelanceShield escrow seal.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number-badge">03</div>
+          <h4>Capture PayPal Escrow</h4>
+          <p>Clients pay securely via PayPal Orders v2. Our backend verifies the cryptographic capture signature before releasing deliverables.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number-badge">04</div>
+          <h4>Monitor & Consult AI</h4>
+          <p>Track monthly velocity in real-time charts and consult ShieldBot anytime about unpaid balances and cybersecurity posture.</p>
+        </div>
+      </div>
+
+      <!-- Landing Footer -->
+      <footer class="landing-footer">
+        <div>
+          <strong>FreelanceShield AI</strong> &mdash; Built for the PayPal &amp; AI Hackathon 2026.
+        </div>
+        <div>
+          Licensed under the <a href="#" style="color: var(--color-deep-blue); font-weight: 700; text-decoration: none;">MIT Open Source License</a>
+        </div>
+      </footer>
+    </section>
+
+    <!-- ---------------------------------------------------------------------
+         B. MAIN DASHBOARD VIEW
+         --------------------------------------------------------------------- -->
+    <section class="view-section" id="view-dashboard">
+      <!-- Welcome Top Banner -->
+      <div class="dashboard-top-banner">
+        <div class="banner-welcome">
+          <h1>Command Center &amp; Escrow Telemetry</h1>
+          <p>All PayPal Sandbox milestone payments and AI threat monitoring synchronized in real time.</p>
+        </div>
+        <div class="banner-quick-actions">
+          <button class="btn-banner-action" onclick="openModal('create-payment-modal')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New PayPal Order
+          </button>
+          <button class="btn-banner-action" data-view-target="security">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Scan Scam Message
+          </button>
+          <button class="btn-banner-action" data-view-target="invoices">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            Draft AI Invoice
+          </button>
+          <button class="btn-banner-action" onclick="askAssistantChip('How much money have I received?')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Ask ShieldBot
+          </button>
+        </div>
+      </div>
+
+      <!-- 6 Metrics Glass Cards Grid -->
+      <div class="dashboard-metrics-grid">
+        <!-- 1. Verified Payments -->
+        <div class="metric-glass-card">
+          <div class="metric-card-top">
+            <div class="metric-icon-small icon-bg-blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <span class="metric-delta">+24.5%</span>
+          </div>
+          <div class="metric-value-num" id="metric-completed-amt">$0.00</div>
+          <div class="metric-label-txt">Verified PayPal Earnings</div>
+        </div>
+
+        <!-- 2. Pending Escrow -->
+        <div class="metric-glass-card">
+          <div class="metric-card-top">
+            <div class="metric-icon-small icon-bg-orange">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="metric-delta">In Escrow</span>
+          </div>
+          <div class="metric-value-num" id="metric-pending-amt">$0.00</div>
+          <div class="metric-label-txt">Pending Sandbox Clearance</div>
+        </div>
+
+        <!-- 3. Failed / Flagged -->
+        <div class="metric-glass-card">
+          <div class="metric-card-top">
+            <div class="metric-icon-small icon-bg-coral">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </div>
+            <span class="metric-delta danger">Blocked</span>
+          </div>
+          <div class="metric-value-num" id="metric-failed-count">0</div>
+          <div class="metric-label-txt">Failed / Scam Attempts</div>
+        </div>
+
+        <!-- 4. Total Invoices -->
+        <div class="metric-glass-card">
+          <div class="metric-card-top">
+            <div class="metric-icon-small icon-bg-cyan">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            </div>
+            <span class="metric-delta">Active</span>
+          </div>
+          <div class="metric-value-num" id="metric-invoices-count">0</div>
+          <div class="metric-label-txt">Shield Invoices Issued</div>
+        </div>
+
+        <!-- 5. Threats Detected -->
+        <div class="metric-glass-card">
+          <div class="metric-card-top">
+            <div class="metric-icon-small icon-bg-coral">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="metric-delta danger">-67% Risk</span>
+          </div>
+          <div class="metric-value-num" id="metric-threats-count">0</div>
+          <div class="metric-label-txt">Threats Neutralized</div>
+        </div>
+
+        <!-- 6. Posture Score -->
+        <div class="metric-glass-card">
+          <div class="metric-card-top">
+            <div class="metric-icon-small icon-bg-green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="metric-delta">Optimal</span>
+          </div>
+          <div class="metric-value-num" id="metric-score-val">98%</div>
+          <div class="metric-label-txt">Freelancer Posture Grade</div>
+        </div>
+      </div>
+
+      <!-- Core Two-Column Layout (Chart + Security Alerts Feed) -->
+      <div class="dashboard-core-grid">
+        <!-- Monthly Activity Chart Card -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div>
+              <div class="glass-card-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                Monthly Payment &amp; Escrow Activity
+              </div>
+              <div class="glass-card-sub">Real-time cumulative earnings verified by PayPal Sandbox Orders v2 API</div>
+            </div>
+            <span class="status-badge badge-completed">Live Synchronized</span>
+          </div>
+          <div class="chart-card-container">
+            <canvas id="dashboard-activity-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Recent Security Alerts Feed -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div>
+              <div class="glass-card-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Security Incident Feed
+              </div>
+              <div class="glass-card-sub">Latest AI detections &amp; quarantined lures</div>
+            </div>
+            <button class="filter-tab-btn" data-view-target="security">Run Scan</button>
+          </div>
+          <div class="alerts-list-feed" id="alerts-feed-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Transactions Table Card -->
+      <div class="glass-card">
+        <div class="glass-card-header">
+          <div>
+            <div class="glass-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              PayPal Transaction Ledger
+            </div>
+            <div class="glass-card-sub">Click any row to open the complete cryptographic forensic dossier</div>
+          </div>
+          <button class="btn-liquid-primary" style="padding: 0.5rem 1.2rem; font-size: 0.82rem;" onclick="openModal('create-payment-modal')">
+            + Create Payment Request
+          </button>
+        </div>
+
+        <div class="transaction-table-wrapper">
+          <table class="fintech-table">
+            <thead>
+              <tr>
+                <th>Client / Entity</th>
+                <th>Order / Reference</th>
+                <th>Amount</th>
+                <th>Payment Status</th>
+                <th>AI Security Posture</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody id="dashboard-txn-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------
+         C. AI SECURITY CENTER VIEW (3 Tools)
+         --------------------------------------------------------------------- -->
+    <section class="view-section" id="view-security">
+      <div style="margin-bottom: 2rem;">
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--color-charcoal); letter-spacing: -0.02em;">
+          AI Cybersecurity Defense Center
+        </h2>
+        <p style="color: var(--color-slate); font-size: 1rem; margin-top: 0.35rem;">
+          Specialized AI models evaluate client proposals, scan suspicious URLs, and inspect freelance job descriptions.
+        </p>
+      </div>
+
+      <!-- Navigation Tabs between 3 Security Tools -->
+      <div class="security-tools-tabs">
+        <button class="sec-tool-tab active" data-tool="scam-detector">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Scam Message Detector
+        </button>
+        <button class="sec-tool-tab" data-tool="url-scanner">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          Suspicious URL Scanner
+        </button>
+        <button class="sec-tool-tab" data-tool="job-analyzer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Freelance Job Offer Analyzer
+        </button>
+      </div>
+
+      <!-- TOOL 1: SCAM MESSAGE DETECTOR -->
+      <div class="tool-pane active" id="tool-pane-scam-detector">
+        <div class="tool-two-col">
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <div class="glass-card-title">Evaluate Proposal / Client Message</div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-slate); margin-bottom: 1rem;">
+              Paste client messages, payment instructions, emails, or job invitations. The AI model checks for cashier's check overpayments, Telegram/WhatsApp redirects, and fake escrow tricks.
+            </p>
+
+            <textarea id="scam-message-input" class="fintech-textarea" rows="7" placeholder="Paste incoming message, job offer brief, or payment instruction here..."></textarea>
+
+            <div style="margin-top: 0.75rem;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-slate);">1-Click Hackathon Presets:</span>
+              <div class="preset-chip-tray">
+                <button type="button" class="preset-chip" onclick="fillPresetScam('overpayment')">?? Cashier's Check Scam</button>
+                <button type="button" class="preset-chip" onclick="fillPresetScam('telegram')">?? Telegram Bypass</button>
+                <button type="button" class="preset-chip" onclick="fillPresetScam('fake-escrow')">?? Fake Escrow Hold</button>
+                <button type="button" class="preset-chip" onclick="fillPresetScam('legit')">? Legitimate Proposal</button>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; text-align: right;">
+              <button class="btn-liquid-primary" id="btn-scan-scam-msg" onclick="runScamMessageScan()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Analyze Message Security
+              </button>
+            </div>
+          </div>
+
+          <!-- Output Dossier -->
+          <div class="security-dossier-card" id="scam-msg-results-card" style="display: none;">
+            <div class="risk-meter-wrapper">
+              <div class="risk-score-circle" id="scam-score-circle">
+                <div class="score-num" id="scam-score-number">0</div>
+                <div class="score-max">/ 100</div>
+              </div>
+              <div>
+                <div class="risk-verdict-title" id="scam-verdict-text">Security Evaluation Result</div>
+                <div style="font-size: 0.85rem; color: var(--color-slate);" id="scam-explanation-text">...</div>
+              </div>
+            </div>
+
+            <h5 style="margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 800;">Detected Threat Signatures:</h5>
+            <div class="risk-indicators-list" id="scam-indicators-list">
+              <!-- Dynamically rendered -->
+            </div>
+
+            <h5 style="margin-top: 1.25rem; margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 800;">Recommended Next Steps:</h5>
+            <ul style="padding-left: 1.2rem; font-size: 0.82rem; color: var(--color-slate); line-height: 1.5;" id="scam-recommendations-list">
+              <!-- Dynamically rendered -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOOL 2: SUSPICIOUS URL SCANNER -->
+      <div class="tool-pane" id="tool-pane-url-scanner">
+        <div class="tool-two-col">
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <div class="glass-card-title">Phishing &amp; Malicious Link Inspector</div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-slate); margin-bottom: 1rem;">
+              Enter any link received from a client. FreelanceShield inspects DNS properties, punycode lookalikes, spoofed PayPal domains, and unencrypted HTTP endpoints without navigating to untrusted servers.
+            </p>
+
+            <input type="text" id="url-scan-input" class="fintech-input" placeholder="e.g. https://paypal.com-verify.top/checkout" />
+
+            <div style="margin-top: 0.75rem;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-slate);">1-Click Test URLs:</span>
+              <div class="preset-chip-tray">
+                <button type="button" class="preset-chip" onclick="fillPresetURL('paypal-spoof')">?? PayPal Impersonator (.top)</button>
+                <button type="button" class="preset-chip" onclick="fillPresetURL('ip-address')">?? Raw IP Payload</button>
+                <button type="button" class="preset-chip" onclick="fillPresetURL('punycode')">?? Homoglyph (xn--)</button>
+                <button type="button" class="preset-chip" onclick="fillPresetURL('safe')">? Official PayPal</button>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; text-align: right;">
+              <button class="btn-liquid-primary" id="btn-scan-url" onclick="runURLScan()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Inspect Link Security
+              </button>
+            </div>
+          </div>
+
+          <!-- URL Output Dossier -->
+          <div class="security-dossier-card" id="url-results-card" style="display: none;">
+            <div class="risk-meter-wrapper">
+              <div class="risk-score-circle" id="url-score-circle">
+                <div class="score-num" id="url-score-number">0</div>
+                <div class="score-max">/ 100</div>
+              </div>
+              <div>
+                <div class="risk-verdict-title" id="url-verdict-text">Link Evaluation Result</div>
+                <div style="font-size: 0.85rem; color: var(--color-slate);">Domain and transport heuristic breakdown:</div>
+              </div>
+            </div>
+
+            <div id="url-details-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOOL 3: FREELANCE JOB OFFER ANALYZER -->
+      <div class="tool-pane" id="tool-pane-job-analyzer">
+        <div class="tool-two-col">
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <div class="glass-card-title">Freelance Job Posting Assessment</div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-slate); margin-bottom: 1rem;">
+              Analyzes job descriptions for upfront onboarding kit fees, unrealistic compensation ($90/hr for typists), unmoderated WhatsApp chats, and sensitive banking requests.
+            </p>
+
+            <div style="display: flex; gap: 1rem; margin-bottom: 0.85rem;">
+              <input type="text" id="job-title-input" class="fintech-input" placeholder="Job Title (e.g. Data Entry Specialist)" />
+              <input type="text" id="job-budget-input" class="fintech-input" style="max-width: 160px;" placeholder="Budget (e.g. $90/hr)" />
+            </div>
+
+            <textarea id="job-desc-input" class="fintech-textarea" rows="5" placeholder="Paste full job description, client requirements, or RFP text..."></textarea>
+
+            <div style="margin-top: 1.5rem; text-align: right;">
+              <button class="btn-liquid-primary" id="btn-scan-job" onclick="runJobOfferScan()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Analyze Job Offer
+              </button>
+            </div>
+          </div>
+
+          <!-- Job Output Dossier -->
+          <div class="security-dossier-card" id="job-results-card" style="display: none;">
+            <div class="risk-meter-wrapper">
+              <div class="risk-score-circle" id="job-score-circle">
+                <div class="score-num" id="job-score-number">0</div>
+                <div class="score-max">/ 100</div>
+              </div>
+              <div>
+                <div class="risk-verdict-title" id="job-verdict-text">Offer Analysis Result</div>
+                <div style="font-size: 0.85rem; color: var(--color-slate);">Vulnerability assessment for independent contractor</div>
+              </div>
+            </div>
+
+            <h5 style="margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 800;">Flagged Risk Factors:</h5>
+            <div class="risk-indicators-list" id="job-flags-list">
+              <!-- Dynamically rendered -->
+            </div>
+
+            <h5 style="margin-top: 1.25rem; margin-bottom: 0.6rem; font-size: 0.9rem; font-weight: 800;">Actionable Advice:</h5>
+            <ul style="padding-left: 1.2rem; font-size: 0.82rem; color: var(--color-slate); line-height: 1.5;" id="job-recs-list">
+              <!-- Dynamically rendered -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------
+         D. PAYPAL PAYMENT CENTER VIEW
+         --------------------------------------------------------------------- -->
+    <section class="view-section" id="view-paypal">
+      <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--color-charcoal); letter-spacing: -0.02em;">
+            PayPal Sandbox Payment Center
+          </h2>
+          <p style="color: var(--color-slate); font-size: 1rem; margin-top: 0.35rem;">
+            Create Orders v2 requests, simulate buyer approval, capture funds, and manage idempotent milestone ledgers.
+          </p>
+        </div>
+        <button class="btn-liquid-primary" onclick="openModal('create-payment-modal')">
+          + Create Payment Request
+        </button>
+      </div>
+
+      <div class="paypal-hub-grid">
+        <!-- Left: PayPal Connection Status Card -->
+        <div>
+          <div class="paypal-status-card">
+            <div class="paypal-status-header">
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-charcoal);">Connection Status</h3>
+              <span class="status-badge badge-completed" id="paypal-mode-badge">Active</span>
+            </div>
+            <div style="font-size: 0.9rem; font-weight: 700; color: var(--color-deep-blue); margin-bottom: 0.2rem;" id="paypal-mode-text">
+              Loading status...
+            </div>
+            <div style="font-family: monospace; font-size: 0.78rem; color: var(--color-slate);" id="paypal-client-preview">
+              Client ID: Synchronizing...
+            </div>
+
+            <ul class="paypal-features-checklist">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                OAuth 2.0 Bearer Handshake (/v1/oauth2/token)
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                PayPal Orders v2 (Intent: CAPTURE)
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                Server-side Capture Signature Verification
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                Idempotent Ledger with SQLite Sync
+              </li>
+            </ul>
+          </div>
+
+          <!-- Quick Test Trigger Box -->
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <div class="glass-card-title">Sandbox Testing Instructions</div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-slate); line-height: 1.5; margin-bottom: 1rem;">
+              You can test the full PayPal payment flow right now:
+            </p>
+            <ol style="padding-left: 1.2rem; font-size: 0.82rem; color: var(--color-slate); line-height: 1.5;">
+              <li>Click <strong>Create Payment Request</strong>.</li>
+              <li>Enter client details and amount (e.g. $500).</li>
+              <li>The backend creates a genuine Orders v2 order.</li>
+              <li>Click <strong>Approve &amp; Capture</strong> to simulate sandbox clearance and verify the capture receipt.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Right: Real-time Transaction Ledger -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div class="glass-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Payment &amp; Escrow Ledger
+            </div>
+            <span class="status-badge badge-safe">Idempotent SQLite DB</span>
+          </div>
+
+          <div class="transaction-table-wrapper">
+            <table class="fintech-table">
+              <thead>
+                <tr>
+                  <th>Client / Email</th>
+                  <th>Order Reference</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Risk Score</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="paypal-txn-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------
+         E. AI INVOICE GENERATOR VIEW
+         --------------------------------------------------------------------- -->
+    <section class="view-section" id="view-invoices">
+      <div style="margin-bottom: 2rem;">
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--color-charcoal); letter-spacing: -0.02em;">
+          AI Natural-Language Invoice Studio
+        </h2>
+        <p style="color: var(--color-slate); font-size: 1rem; margin-top: 0.35rem;">
+          Type naturally to generate professional invoices with embedded PayPal Sandbox escrow payment buttons and PDF downloads.
+        </p>
+      </div>
+
+      <div class="invoice-studio-grid">
+        <!-- Natural Language Prompt & Edit Box -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div class="glass-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-4.5a1 1 0 0 1-2 0V7a1 1 0 0 1 2 0z"/></svg>
+              Generate with AI Instruction
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--color-slate); margin-bottom: 0.85rem;">
+            Describe your invoice in plain English:
+          </p>
+
+          <textarea id="ai-invoice-prompt" class="fintech-textarea" rows="3" placeholder="e.g. Create an invoice for a $500 website development project for ABC Solutions due in 10 days"></textarea>
+
+          <div style="margin-top: 0.5rem; display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <button type="button" class="preset-chip" onclick="document.getElementById('ai-invoice-prompt').value='Create an invoice for a $500 website development project for ABC Solutions due in 10 days'">
+              Preset: $500 Web Project for ABC Solutions
+            </button>
+            <button type="button" class="preset-chip" onclick="document.getElementById('ai-invoice-prompt').value='Create an invoice for $1,250 Cybersecurity penetration test for Apex Cloud Systems due next Friday'">
+              Preset: $1,250 Security Audit
+            </button>
+          </div>
+
+          <div style="margin-top: 1.25rem; text-align: right;">
+            <button class="btn-liquid-primary" id="btn-gen-ai-invoice" onclick="runAIInvoiceGeneration()">
+              Generate Invoice Draft with AI
+            </button>
+          </div>
+
+          <!-- Form to Review & Save Draft -->
+          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(8,127,165,0.1);">
+            <h4 style="font-size: 1rem; font-weight: 800; color: var(--color-charcoal); margin-bottom: 1rem;">
+              Review &amp; Edit Invoice Draft
+            </h4>
+
+            <form id="invoice-draft-form">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem;">
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: var(--color-slate);">Client Name</label>
+                  <input type="text" id="inv-client-name" class="fintech-input" placeholder="Client Name" required />
+                </div>
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: var(--color-slate);">Client Email</label>
+                  <input type="email" id="inv-client-email" class="fintech-input" placeholder="billing@client.com" required />
+                </div>
+              </div>
+
+              <div style="margin-bottom: 0.85rem;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--color-slate);">Project Title</label>
+                <input type="text" id="inv-project-title" class="fintech-input" placeholder="e.g. Website Development" required />
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem;">
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: var(--color-slate);">Amount ($ USD)</label>
+                  <input type="number" step="0.01" id="inv-amount" class="fintech-input" placeholder="500.00" required />
+                </div>
+                <div>
+                  <label style="font-size: 0.75rem; font-weight: 700; color: var(--color-slate);">Due Date</label>
+                  <input type="date" id="inv-due-date" class="fintech-input" required />
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1.25rem;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--color-slate);">Milestone Description</label>
+                <textarea id="inv-description" class="fintech-textarea" rows="2" placeholder="Description of services..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-liquid-primary" id="btn-save-invoice" style="width: 100%; justify-content: center;">
+                Save &amp; Issue Invoice
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Saved Invoices Table -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div>
+              <div class="glass-card-title">Issued Invoices Ledger</div>
+              <div class="glass-card-sub">Generate PDF or trigger PayPal checkout for any invoice</div>
+            </div>
+          </div>
+
+          <div class="transaction-table-wrapper">
+            <table class="fintech-table">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Client</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Due Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="invoices-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------
+         F. ANALYTICS CENTER VIEW
+         --------------------------------------------------------------------- -->
+    <section class="view-section" id="view-analytics">
+      <div style="margin-bottom: 2rem;">
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--color-charcoal); letter-spacing: -0.02em;">
+          Graphical Financial &amp; Security Analytics
+        </h2>
+        <p style="color: var(--color-slate); font-size: 1rem; margin-top: 0.35rem;">
+          Interactive Chart.js visualizations driven by verified SQLite database transactions.
+        </p>
+      </div>
+
+      <div class="analytics-grid-2x2">
+        <!-- Chart 1: Monthly Revenue Volume -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div class="glass-card-title">Monthly Payment Volume ($ USD)</div>
+          </div>
+          <div style="height: 280px; position: relative;">
+            <canvas id="analytics-volume-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 2: Status Breakdown -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div class="glass-card-title">Payment Settlement Breakdown</div>
+          </div>
+          <div style="height: 280px; position: relative;">
+            <canvas id="analytics-dist-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 3: Security Threats Breakdown -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div class="glass-card-title">Security Threat Category Distribution</div>
+          </div>
+          <div style="height: 280px; position: relative;">
+            <canvas id="analytics-threats-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 4: Client Trust Matrix -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div class="glass-card-title">Enterprise Escrow Health &amp; Trust</div>
+          </div>
+          <div style="padding: 1rem 0;">
+            <div style="margin-bottom: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.35rem;">
+                <span>PayPal Sandbox Orders API Health</span>
+                <span style="color: #059669;">100% Operational</span>
+              </div>
+              <div style="background: rgba(8,127,165,0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+                <div style="background: #10B981; width: 100%; height: 100%;"></div>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.35rem;">
+                <span>AI Scam &amp; Phishing Neutralization Rate</span>
+                <span style="color: #087FA5;">98.4% Defense Posture</span>
+              </div>
+              <div style="background: rgba(8,127,165,0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+                <div style="background: linear-gradient(90deg, #087FA5, #37BCD3); width: 98%; height: 100%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.35rem;">
+                <span>Dispute &amp; Chargeback Shield Protection</span>
+                <span style="color: #059669;">0% Chargeback Loss</span>
+              </div>
+              <div style="background: rgba(8,127,165,0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+                <div style="background: #34D399; width: 100%; height: 100%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------------
+         G. NOTIFICATIONS CENTER VIEW
+         --------------------------------------------------------------------- -->
+    <section class="view-section" id="view-notifications">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <div>
+          <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--color-charcoal); letter-spacing: -0.02em;">
+            Security Alarm &amp; Notifications Center
+          </h2>
+          <p style="color: var(--color-slate); font-size: 1rem; margin-top: 0.35rem;">
+            Real application events: high-risk scam detections, PayPal captures, and invoice alerts.
+          </p>
+        </div>
+        <button class="btn-liquid-secondary" onclick="markAllNotificationsRead()">
+          Mark All Read
+        </button>
+      </div>
+
+      <div id="notifications-full-list">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       FLOATING AI FINANCIAL ASSISTANT (ShieldBot)
+       ========================================================================= -->
+  <div class="floating-assistant-trigger" id="assistant-trigger">
+    <div class="assistant-avatar-glow">SB</div>
+    <span style="font-weight: 800; font-size: 0.92rem;">ShieldBot Copilot</span>
+  </div>
+
+  <div class="assistant-chat-drawer" id="assistant-drawer">
+    <div class="chat-drawer-header">
+      <h3>
+        <span class="user-avatar-initials" style="width: 26px; height: 26px; font-size: 0.75rem; background: white; color: #087FA5;">SB</span>
+        ShieldBot AI Financial Assistant
+      </h3>
+      <button id="assistant-close-btn" style="background: transparent; border: none; color: white; font-size: 1.2rem; cursor: pointer;">&times;</button>
+    </div>
+
+    <div class="chat-messages-container" id="assistant-messages">
+      <div class="chat-bubble bot">
+        Hello Alex! I am <strong>ShieldBot</strong>, your real-time financial and cybersecurity assistant.
+        I have direct access to your verified PayPal Sandbox ledger and security scans. How can I help you today?
+      </div>
+    </div>
+
+    <!-- Quick Question Chips -->
+    <div class="chat-quick-chips">
+      <button class="chat-quick-chip" onclick="askAssistantChip('How much money have I received?')">? Total Received</button>
+      <button class="chat-quick-chip" onclick="askAssistantChip('Show all pending payments')">?? Pending Escrow</button>
+      <button class="chat-quick-chip" onclick="askAssistantChip('Which invoices are unpaid?')">?? Unpaid Invoices</button>
+      <button class="chat-quick-chip" onclick="askAssistantChip('How many security threats have been detected?')">?? Security Threats</button>
+    </div>
+
+    <div class="chat-input-bar">
+      <input type="text" id="assistant-input" class="fintech-input" placeholder="Ask about payments, invoices, or scams..." />
+      <button class="btn-liquid-primary" id="assistant-send-btn" style="padding: 0.75rem 1rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODALS: CREATE PAYMENT, CHECKOUT APPROVAL, TRANSACTION INSPECTOR
+       ========================================================================= -->
+
+  <!-- 1. Create Payment Request Modal -->
+  <div class="fintech-modal-backdrop" id="create-payment-modal">
+    <div class="fintech-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--color-charcoal);">Create PayPal Sandbox Order</h3>
+        <button style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-slate);" onclick="closeModal('create-payment-modal')">&times;</button>
+      </div>
+
+      <form id="create-payment-form">
+        <div style="margin-bottom: 1rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-slate);">Client / Company Name</label>
+          <input type="text" id="pp-client-name" class="fintech-input" placeholder="e.g. Apex Cloud Systems" required />
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-slate);">Client Email</label>
+          <input type="email" id="pp-client-email" class="fintech-input" placeholder="s.jenkins@apexcloud.io" required />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-slate);">Amount ($ USD)</label>
+            <input type="number" step="0.01" id="pp-amount" class="fintech-input" placeholder="500.00" required />
+          </div>
+          <div>
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-slate);">Currency</label>
+            <select id="pp-currency" class="fintech-select">
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: var(--color-slate);">Payment / Deliverable Description</label>
+          <input type="text" id="pp-description" class="fintech-input" placeholder="e.g. Milestone 1: Frontend Architecture" />
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+          <button type="button" class="btn-liquid-secondary" onclick="closeModal('create-payment-modal')">Cancel</button>
+          <button type="submit" class="btn-liquid-primary" id="btn-submit-paypal-order">Generate PayPal Order</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Sandbox Checkout Approval Simulator Modal -->
+  <div class="fintech-modal-backdrop" id="checkout-modal">
+    <div class="fintech-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--color-charcoal); display: flex; align-items: center; gap: 0.6rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" color="#087FA5"><path d="M7 2h10a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3H9l-2 10H3L7 2z"/></svg>
+          PayPal Sandbox Checkout Experience
+        </h3>
+        <button style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-slate);" onclick="closeModal('checkout-modal')">&times;</button>
+      </div>
+
+      <div id="checkout-order-details">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Transaction Forensic Inspector Modal -->
+  <div class="fintech-modal-backdrop" id="txn-inspect-modal">
+    <div class="fintech-modal-card">
+      <div id="txn-inspect-body">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Application Script -->
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

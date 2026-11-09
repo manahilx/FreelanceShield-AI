@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Glow Filter -->
+  <defs>
+    <filter id="shieldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1E40AF" />
+    </linearGradient>
+    <linearGradient id="cyberAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Shield Icon -->
+  <g transform="translate(10, 6)">
+    <!-- Outer Shield Crest -->
+    <path d="M24 2 L44 10 V25 C44 37 34 45 24 48 C14 45 4 37 4 25 V10 Z" 
+          fill="#0B2450" stroke="url(#shieldGrad)" stroke-width="2.5" filter="url(#shieldGlow)" />
+    
+    <!-- Circuit Overlay Pattern -->
+    <path d="M24 10 V24 M14 20 L24 24 L34 20 M24 24 V38 M18 32 L24 38 L30 32" 
+          stroke="#38BDF8" stroke-width="1.5" stroke-linecap="round" opacity="0.8" />
+    
+    <!-- Central AI Core / Lock -->
+    <rect x="19" y="22" width="10" height="9" rx="2" fill="#00F0FF" />
+    <path d="M21 22 V18 C21 16.3 22.3 15 24 15 C25.7 15 27 16.3 27 18 V22" 
+          stroke="#00F0FF" stroke-width="1.8" fill="none" />
+    <circle cx="24" cy="26" r="1.5" fill="#071A36" />
+  </g>
+
+  <!-- Typography -->
+  <text x="64" y="29" fill="#FFFFFF" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="20" font-weight="800" letter-spacing="-0.5">
+    Freelance<tspan fill="#38BDF8">Shield</tspan>
+  </text>
+  <text x="65" y="44" fill="#93C5FD" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="2">
+    AI CYBER DEFENSE
+  </text>
+  
+  <!-- AI Active Badge -->
+  <rect x="180" y="16" width="38" height="17" rx="8.5" fill="rgba(37, 99, 235, 0.25)" stroke="#2563EB" stroke-width="1" />
+  <circle cx="188" cy="24.5" r="3" fill="#10B981" />
+  <text x="195" y="28" fill="#60A5FA" font-family="'Inter', system-ui, sans-serif" font-size="9" font-weight="700">AI</text>
+</svg>

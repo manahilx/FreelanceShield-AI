@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 380" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B2450" />
+      <stop offset="50%" stop-color="#071A36" />
+      <stop offset="100%" stop-color="#030E1F" />
+    </linearGradient>
+    <linearGradient id="cyberCyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="neonGlowGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="goldLock" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="armorMetal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="40%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="visorGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="50%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="intenseGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Hexagon Pattern -->
+    <pattern id="hexGrid" width="30" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <path d="M15 0 L30 8.66 L30 26 L15 34.64 L0 26 L0 8.66 Z" fill="none" stroke="#1E3A8A" stroke-width="0.75" stroke-opacity="0.35" />
+    </pattern>
+  </defs>
+
+  <!-- Background Cyber Mesh & Radial Glow -->
+  <circle cx="280" cy="180" r="180" fill="url(#neonGlowGrad)" opacity="0.15" />
+  <rect x="0" y="0" width="540" height="380" fill="url(#hexGrid)" />
+
+  <!-- Concentric Orbital Cyber Rings -->
+  <g opacity="0.6" transform="translate(280, 190)">
+    <ellipse rx="170" ry="70" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="8 12" />
+    <ellipse rx="140" ry="55" fill="none" stroke="#38BDF8" stroke-width="1" stroke-dasharray="4 6" opacity="0.7" />
+    <ellipse rx="210" ry="85" fill="none" stroke="#1E40AF" stroke-width="0.8" stroke-dasharray="15 20" />
+    <!-- Orbiting Data Nodes -->
+    <circle cx="160" cy="25" r="4" fill="#00F0FF" filter="url(#softGlow)" />
+    <circle cx="-135" cy="-20" r="3.5" fill="#38BDF8" filter="url(#softGlow)" />
+    <circle cx="90" cy="-60" r="3" fill="#60A5FA" />
+  </g>
+
+  <!-- Ground Cyber Grid Horizon Lines -->
+  <g opacity="0.3" stroke="#38BDF8" stroke-width="0.8">
+    <line x1="80" y1="320" x2="460" y2="320" />
+    <line x1="40" y1="340" x2="500" y2="340" />
+    <line x1="10" y1="365" x2="530" y2="365" />
+    <line x1="280" y1="300" x2="160" y2="380" />
+    <line x1="280" y1="300" x2="400" y2="380" />
+    <line x1="280" y1="300" x2="280" y2="380" />
+  </g>
+
+  <!-- 3D Futuristic AI Guardian / Robot Bust & Chassis -->
+  <g transform="translate(190, 70)">
+    <!-- Back Neck / Support Chassis -->
+    <path d="M70 140 L110 140 L125 180 L55 180 Z" fill="#0B132B" stroke="#1E293B" stroke-width="2" />
+    
+    <!-- Torso Cyber Armor -->
+    <path d="M35 180 L145 180 L165 250 L15 250 Z" fill="url(#armorMetal)" stroke="#38BDF8" stroke-width="1.5" />
+    
+    <!-- Chest Plate Luminescent Power Core -->
+    <path d="M70 195 L110 195 L100 235 L80 235 Z" fill="#071A36" stroke="#00F0FF" stroke-width="1.5" />
+    <circle cx="90" cy="212" r="10" fill="#00F0FF" filter="url(#intenseGlow)" />
+    <circle cx="90" cy="212" r="5" fill="#FFFFFF" />
+    
+    <!-- Shoulder Armor Pads -->
+    <path d="M15 180 L35 170 L50 205 L15 220 Z" fill="#1E293B" stroke="#38BDF8" stroke-width="1" />
+    <path d="M165 180 L145 170 L130 205 L165 220 Z" fill="#1E293B" stroke="#38BDF8" stroke-width="1" />
+
+    <!-- Head & Helmet Chassis -->
+    <path d="M55 70 L125 70 L135 120 L115 150 L65 150 L45 120 Z" fill="url(#armorMetal)" stroke="#60A5FA" stroke-width="2" />
+    <!-- Helmet Top Ridge -->
+    <path d="M80 50 L100 50 L105 75 L75 75 Z" fill="#0F172A" stroke="#00F0FF" stroke-width="1.2" />
+
+    <!-- Cyber Visor / High-Tech Sensor Bar -->
+    <path d="M52 95 Q90 102 128 95 L125 112 Q90 120 55 112 Z" fill="url(#visorGlow)" filter="url(#intenseGlow)" />
+    <!-- Visor Scanning Wave Line -->
+    <line x1="60" y1="104" x2="120" y2="104" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Lateral Neural Circuit Feeds -->
+    <path d="M45 120 L30 135 L30 160 M135 120 L150 135 L150 160" stroke="#00F0FF" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.8" />
+    <circle cx="30" cy="160" r="2.5" fill="#00F0FF" filter="url(#softGlow)" />
+    <circle cx="150" cy="160" r="2.5" fill="#00F0FF" filter="url(#softGlow)" />
+  </g>
+
+  <!-- Futuristic Glowing Shield Floating Forefront -->
+  <g transform="translate(60, 110)">
+    <!-- Outer Hologram Crest -->
+    <path d="M60 10 L115 30 V75 C115 115 85 140 60 150 C35 140 5 115 5 75 V30 Z" 
+          fill="url(#neonGlowGrad)" stroke="#38BDF8" stroke-width="2.5" filter="url(#intenseGlow)" />
+    
+    <!-- Inner Hexagonal Geometry Layer -->
+    <path d="M60 25 L100 40 V75 C100 105 75 125 60 132 C45 125 20 105 20 75 V40 Z" 
+          fill="#071A36" fill-opacity="0.75" stroke="#60A5FA" stroke-width="1.5" />
+
+    <!-- Central Cyber Security Vector Emblem -->
+    <path d="M60 45 V90 M40 65 L60 75 L80 65" stroke="#00F0FF" stroke-width="2.5" stroke-linecap="round" />
+    <circle cx="60" cy="75" r="4" fill="#FFFFFF" filter="url(#softGlow)" />
+    <circle cx="40" cy="65" r="3" fill="#38BDF8" />
+    <circle cx="80" cy="65" r="3" fill="#38BDF8" />
+
+    <!-- Verification Checkmark / Shield Active -->
+    <path d="M48 98 L56 106 L74 88" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)" />
+  </g>
+
+  <!-- Floating Holographic Cryptographic Lock -->
+  <g transform="translate(390, 95)" filter="url(#intenseGlow)">
+    <!-- Lock Shackle -->
+    <path d="M35 35 V20 C35 11.7 41.7 5 50 5 C58.3 5 65 11.7 65 20 V35" 
+          stroke="url(#goldLock)" stroke-width="5" stroke-linecap="round" fill="none" />
+    
+    <!-- Lock Body -->
+    <rect x="25" y="32" width="50" height="42" rx="6" fill="#0B2450" stroke="url(#goldLock)" stroke-width="2" />
+    
+    <!-- Glowing Keyhole -->
+    <circle cx="50" cy="48" r="4.5" fill="#FBBF24" />
+    <polygon points="48,50 52,50 54,62 46,62" fill="#FBBF24" />
+
+    <!-- Holographic Energy Brackets -->
+    <path d="M15 25 L10 25 L10 75 L15 75 M85 25 L90 25 L90 75 L85 75" stroke="#38BDF8" stroke-width="1.5" fill="none" opacity="0.7" />
+  </g>
+
+  <!-- Live Security Telemetry Floating Tag -->
+  <g transform="translate(360, 260)">
+    <rect x="0" y="0" width="155" height="48" rx="8" fill="#071A36" fill-opacity="0.9" stroke="#2563EB" stroke-width="1.2" filter="url(#softGlow)" />
+    <circle cx="18" cy="24" r="4.5" fill="#10B981" filter="url(#softGlow)" />
+    <text x="32" y="20" fill="#94A3B8" font-family="'Inter', sans-serif" font-size="9.5" font-weight="600">AI CYBER PROTOCOL</text>
+    <text x="32" y="36" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">ARMED &amp; GUARDED</text>
+  </g>
+</svg>
