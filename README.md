@@ -1,4 +1,4 @@
-# FreelanceShield AI 🛡️
+# FreelanceShield AI 
 ## AI-Powered Freelancer Protection & PayPal Automation Platform
 *Built for the PayPal & AI Hackathon 2026*
 
@@ -12,7 +12,7 @@ FreelanceShield AI is a full-stack financial security and payment automation pla
 
 ---
 
-## 🌊 Visual Design — Liquid Glass Fintech
+##Visual Design — Liquid Glass Fintech
 
 FreelanceShield AI replaces boring admin dashboards with a liquid glass aesthetic:
 - **Fluid Liquid Canvas**: Aqua blue (`#37BCD3`), turquoise (`#64D6DC`), and deep blue (`#087FA5`) liquid mesh with animated floating 3D ambient orbs.
@@ -22,28 +22,28 @@ FreelanceShield AI replaces boring admin dashboards with a liquid glass aestheti
 
 ---
 
-## ⚡ Three Integrated Systems
+## Three Integrated Systems
 
-### 1. 🛡️ AI Cybersecurity Protection Center
+### 1.AI Cybersecurity Protection Center
 - **Scam Message Detector**: Analyzes client messages and job offers for overpayment schemes, cashier's check tricks, fake escrow claims, and off-platform Telegram/WhatsApp coercion. Returns structured risk scores (0–100), risk classifications (Low, Medium, High, Critical), detected indicators, and safety recommendations.
 - **Suspicious URL & Phishing Scanner**: Validates URL syntax, inspects domain properties, verifies HTTPS transport, detects raw IP hosts, flags punycode homoglyphs (`xn--`), and unmasks spoofed financial domains (e.g. `paypal.com-verify.top`) without navigating to malicious servers.
 - **Freelance Job Offer Analyzer**: Evaluates freelance postings for upfront onboarding fee traps, unrealistic compensation (e.g. $90/hr data entry bait), sensitive government ID requests, and artificial urgency.
 
-### 2. 💳 PayPal Payment Center (Orders v2 Sandbox)
+### 2.PayPal Payment Center (Orders v2 Sandbox)
 - **Live Connection Monitor**: Displays active Sandbox connection status and token state.
 - **Create Payment Orders**: Generates PayPal orders via Orders v2 API with Intent `CAPTURE`.
 - **Approval & Capture**: Real PayPal Sandbox checkout flow with server-side capture verification.
 - **Idempotent Transaction Ledger**: Tracks gross amounts, PayPal processing fees, net proceeds, client identities, and security risk ratings without duplicate records.
 - **Forensic Inspector**: Slide-over drawer detailing transaction telemetry, geolocations, and escrow release status.
 
-### 3. 🤖 AI Business Automation & Financial Assistant
+### 3.AI Business Automation & Financial Assistant
 - **AI Natural-Language Invoice Studio**: Type natural instructions such as *"Create an invoice for a $500 website development project for ABC Solutions due in 10 days"*. The AI extracts client names, project titles, amounts, and due dates into an editable review form.
 - **Tamper-Evident PDF Invoices**: Generates production-grade, print-ready PDF invoices using ReportLab with itemized service tables, PayPal escrow seals, and payment references.
 - **ShieldBot AI Financial Copilot**: Floating assistant accessible throughout the platform. Answers questions in natural language using **live SQLite database context** (e.g. *"How much money have I received?"*, *"Show pending payments"*, *"Which invoices are unpaid?"*).
 
 ---
 
-## 🏗️ Architecture & Tech Stack
+##Architecture & Tech Stack
 
 ```
 FreelanceShield AI Architecture
@@ -76,9 +76,9 @@ FreelanceShield AI Architecture
 
 ---
 
-## 🚀 Quick Start Guide
+##Quick Start Guide
 
-### Prerequisites
+###Prerequisites
 - Python 3.10+ (Tested on Python 3.14)
 - Pip package manager
 
@@ -125,7 +125,7 @@ Open your browser to:
 
 ---
 
-## 💳 PayPal Sandbox Setup Instructions
+##PayPal Sandbox Setup Instructions
 
 1. Visit the [PayPal Developer Dashboard](https://developer.paypal.com).
 2. Log in and navigate to **Apps & Credentials** > **Sandbox**.
@@ -139,7 +139,7 @@ Open your browser to:
 
 ---
 
-## 🧪 Automated Testing
+##Automated Testing
 
 Execute the comprehensive end-to-end test suite:
 ```bash
@@ -161,7 +161,7 @@ python test_app.py
 
 ---
 
-## 🎥 YouTube Demo Video Script (3–5 Minutes)
+##YouTube Demo Video Script (3–5 Minutes)
 
 **Title:** *FreelanceShield AI — AI-Powered Cybersecurity & PayPal Automation for Freelancers*
 
@@ -177,5 +177,5 @@ python test_app.py
 
 ---
 
-## 📄 License
+##License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
